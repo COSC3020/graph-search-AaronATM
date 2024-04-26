@@ -27,6 +27,10 @@ the function and run automatically when you commit through a GitHub action.
 What is the worst-case big $\Theta$ complexity of your implementation? Add your
 answer, including your reasoning, to this markdown file.
 
+Worst case runtime: $\Theta (|E| + |V|)$ where V is the number of nodes/vertices in the graph and E the number of edges in the graph
+
+Reasoning: In the worst case the algorithm will need to visit every single node in the entire graph, and for every node it needs to scan every single edge. Thus, the runtime of the DFS implementation is $\Theta (|E| + |V|)$
+
 ## Bonus
 
 Implement and analyze breadth-first search.
