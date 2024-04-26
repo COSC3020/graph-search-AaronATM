@@ -52,9 +52,46 @@ function dfsHelper(graph, currNode, targetNode, visited, order)
     return null;
 }
 
-function findPath(order, startNode, targetNode)
-{
+// BONUS
+// looked at examples on geeks for geeks
+// https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph
 
+function breadthFirstSearch(graph, startNode, targetNode)
+{
+    var visited = new Array(graph.length);
+    var queue = [], adjacentValues = [];
+
+    for (var i = 0; i < graph.length; i++)
+    {
+        visited[i] = false;
+    }
+    
+    visited[startNode] = true;
+    queue.push(startNode);
+
+    while(queue.length !== 0)
+    {
+        var currNode = queue.shift();
+
+        if (currNode == targetNode)
+        {
+            return queue;
+        }
+
+        for (var j = 0; j < graph[currNode].length; j++)
+        {
+            adjacentValues.push(graph[currNode][j]);
+        }
+
+        for (var i = 0; i < adjacentValues.length; i++)
+        {
+            if (!visited[adjacentValues[i]])
+            {
+                visited[adjacentValues[i]] = true;
+                queue.push(adjacentValues[i]);
+            }
+        }
+    }
 }
 
 // Temporary testing code
@@ -67,6 +104,7 @@ var testGraph1 = [[1, 5], [0, 2, 4], [1], [4, 6], [1, 3], [0], [3]];
 // case 4: start 3, find 2
 var testGraph2 = [[1, 5], [0, 2, 3, 4], [1], [1, 4, 6], [1, 3], [0], [3]];
 
+// testing DFS
 var resCase1 = depthFirstSearch(testGraph1, 1, 5);
 var resCase2 = depthFirstSearch(testGraph1, 2, 6);
 var resCase3 = depthFirstSearch(testGraph2, 1, 6);
@@ -76,3 +114,14 @@ console.log(resCase1);
 console.log(resCase2);
 console.log(resCase3);
 console.log(resCase4);
+
+// testing BFS
+var resCase5 = depthFirstSearch(testGraph1, 1, 5);
+var resCase6 = depthFirstSearch(testGraph1, 2, 6);
+var resCase7 = depthFirstSearch(testGraph2, 1, 6);
+var resCase8 = depthFirstSearch(testGraph2, 3, 2);
+
+console.log(resCase5);
+console.log(resCase6);
+console.log(resCase7);
+console.log(resCase8);
