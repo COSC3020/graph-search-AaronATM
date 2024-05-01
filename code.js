@@ -51,24 +51,3 @@ function dfsHelper(graph, currNode, targetNode, visited, order)
 
     return null;
 }
-
-// Temporary testing code
-
-// case 1: start 1, find 5
-// case 2: start 2, find 6
-var testGraph1 = [[1, 5], [0, 2, 4], [1], [4, 6], [1, 3], [0], [3]];
-
-// case 3: start 1, find 6
-// case 4: start 3, find 2
-var testGraph2 = [[1, 5], [0, 2, 3, 4], [1], [1, 4, 6], [1, 3], [0], [3]];
-
-// testing DFS
-var resCase1 = depthFirstSearch(testGraph1, 1, 5);
-var resCase2 = depthFirstSearch(testGraph1, 2, 6);
-var resCase3 = depthFirstSearch(testGraph2, 1, 6);
-var resCase4 = depthFirstSearch(testGraph2, 3, 2);
-
-console.log(resCase1);
-console.log(resCase2);
-console.log(resCase3);
-console.log(resCase4);
