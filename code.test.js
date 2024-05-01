@@ -21,11 +21,8 @@ const testset = [
     { graph: [[ 4, 5 ],[ 4, 5 ],[ 5, 6, 7 ],[ 5, 6 ],[ 0, 1, 7 ],[ 0, 1, 2, 3 ],[ 2, 3 ],[ 2, 4, 8],[ 7 ]], start: 2, end: 8, expected: [ 2, 5, 0, 4, 7, 8 ] },
 ];
 
-const test =
 testset.forEach(({ graph, start, end, expected }, index) => {
-    console.log("\ntest:",index++, (JSON.stringify(depthFirstSearch(graph, start, end)) === JSON.stringify(expected)) ? "Success" : "Failed");
-    console.assert(JSON.stringify(depthFirstSearch(graph, start, end)) === JSON.stringify(expected));
-    (JSON.stringify(depthFirstSearch(graph, start, end)) === JSON.stringify(expected)) ? null : console.log("Failed with values:", graph,"\nStart:", start,"\nEnd:", end, "\nExpected Result:",expected, "\nGot Result:", depthFirstSearch(graph, start, end));
+    let testWorks = (JSON.stringify(depthFirstSearch(graph, start, end)) === JSON.stringify(expected));
+    console.log("\ntest:",index++, testWorks ? "Success" : "Failed");
+    if(!testWorks){ throw console.log("Failed with values:", graph,"\nStart:", start,"\nEnd:", end, "\nExpected Result:",expected, "\nGot Result:", depthFirstSearch(graph, start, end));}
 });
-
-//jsc.assert(test);
