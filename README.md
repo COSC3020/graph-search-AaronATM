@@ -28,7 +28,9 @@ What is the worst-case big $\Theta$ complexity of your implementation? Add your
 answer, including your reasoning, to this markdown file.
 
 // looked at runtime analysis from 
+
 // https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/
+
 // https://techsauce.medium.com/time-complexity-and-space-complexity-of-dfs-and-bfs-algorithms-671217e43d58
 
 Worst case runtime: $\Theta (|E| + |V|)$ where V is the number of nodes/vertices in the graph and E the number of edges in the graph
